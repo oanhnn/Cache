@@ -55,11 +55,11 @@ If you want to use a different configuration, just pass it in the 'config' key.
 * `auto` Automatically cache (default `false`)
 * `gzip` Automatically compress/decompress cached data (default `false`)
 
-### Using Cacher with `Model::find()`, `Controller::paginate()`, etc.
+### Using Cache with `Model::find()`, `Controller::paginate()`, etc.
 
-If you set auto to false, you can pass a `'cacher'` key in your query that is
-either `true` to cache the results, `false` to not cache it, or a valid
-`strtotime()` string to set a duration for that specific call.
+If you set auto to false, you can pass a `'cache'` key in your query that is
+either `true` to cache the results, `false` to not cache it, or array options to 
+overwrite default settings for that specific call.
 
 ```php
     // cache the results of this query for a day
@@ -69,7 +69,7 @@ either `true` to cache the results, `false` to not cache it, or a valid
                 'config'   => '_cake_queries_',
                 'gzip'     => false,
                 'key'      => 'key_of_cache',
-                'duration' => '+999 days'
+                'duration' => '+1 days'
        ),
     ));
     // don't cache the results of this query at all
@@ -104,4 +104,4 @@ You can always disable Cache by using `Behavior::detach()` or `Behavior::disable
 
 ## Thank for
 
-* Cacher [[https://github.com/jeremyharris/cacher]]
+* [Jeremy Harris](mailto:jeremy@someguyjeremy.com) with [Cacher](https://github.com/jeremyharris/cacher)
