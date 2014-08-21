@@ -190,14 +190,15 @@ class CachedBehavior extends ModelBehavior
      *
      * @param Model $model Model using this behavior
      * @param boolean $created True if this save created a new record
+     * @param array $options Options passed from Model::save()
      * @return boolean
      */
-    public function afterSave(Model $model, $created)
+    public function afterSave(Model $model, $created, $options = array())
     {
         if ($this->settings[$model->alias]['clearOnSave']) {
             $this->clearCache($model);
         }
-        return parent::afterSave($model, $created);
+        return parent::afterSave($model, $created, $options);
     }
 
     /**
